@@ -1,9 +1,6 @@
 from django.db import models
 
 
-# from django.contrib.auth.models import User
-# from django.core.files import File
-
 class Users(models.Model):
     email = models.EmailField(max_length=128)
     last_name = models.CharField(max_length=128)
