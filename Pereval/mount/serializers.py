@@ -36,11 +36,12 @@ class PerevalSerializer(WritableNestedModelSerializer):
     level = LevelSerializer()
     images = ImageSerializer(many=True)
     add_time = serializers.DateTimeField(format='%d-%m-%Y %H:%M:%S')
+    status = serializers.CharField()
 
     class Meta:
         model = Pereval
         fields = ['beauty_title', 'title', 'other_titles', 'connect', 'add_time', 'tourist_id', 'coord_id', 'level',
-                  'images']
+                  'images', 'status']
 
     def create(self, validated_data, **kwargs):
         tourist_id = validated_data.pop('tourist_id')
@@ -48,9 +49,8 @@ class PerevalSerializer(WritableNestedModelSerializer):
         level = validated_data.pop('level')
         images = validated_data.pop('images')
 
-        user, created = Users.object.get_or_create(**Users)
-
         tourist_id, created = Users.object.get_or_create(**tourist_id)
+
         coord_id = Coords.objects.create(**coord_id)
         level = Level.objects.create(**level)
         pereval = Pereval.objects.create(**validated_data, tourist_id=tourist_id, coord_id=coord_id, level=level,
@@ -66,7 +66,7 @@ class PerevalSerializer(WritableNestedModelSerializer):
     def validate(self, data):
         if self.instance is not None:
             instance_user = self.instance.user
-            data_user = data.get('user')
+            data_user = data.get('tourist_id')
             validating_user_fields = [
                 instance_user.last_name != data_user['last_name'],
                 instance_user.first_name != data_user['first_name'],
