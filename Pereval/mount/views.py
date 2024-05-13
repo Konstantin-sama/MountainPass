@@ -6,9 +6,17 @@ from .models import *
 from .serializers import *
 
 
+# фильтр через views.py
+# import django_filters
+
+
 class UserViewset(viewsets.ModelViewSet):
     queryset = Users.objects.all()
     serializer_class = UserSerializer
+
+    # фильтр через views.py
+    # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    # filterset_fields = ['email', 'last_name', 'first_name', 'patronymic', 'phone']
 
 
 class CoordsViewset(viewsets.ModelViewSet):
@@ -31,7 +39,10 @@ class PerevalViewset(viewsets.ModelViewSet):
     serializer_class = PerevalSerializer
     filterset_fields = ('tourist_id__email',)
 
-    def create(selfself, request, *args, **kwargs):
+    # фильтр через views.py
+    # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+
+    def create(self, request, *args, **kwargs):
         serializer = PerevalSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

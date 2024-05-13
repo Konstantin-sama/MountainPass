@@ -1,5 +1,8 @@
 from django.db import models
 
+# для функции: сохранить фото в файл media
+from .services import get_path_upload_photos
+
 
 class Users(models.Model):
     email = models.EmailField(max_length=128)
@@ -57,9 +60,20 @@ class Level(models.Model):
 
 
 class Images(models.Model):
-    image = models.ImageField(upload_to='static/images')
+    # image = models.ImageField(upload_to='static/images')
+
+    # для функции: сохранить фото в файл media
+    image = models.ImageField(upload_to=get_path_upload_photos, verbose_name='picture', blank=True, null=True)
     title = models.CharField(max_length=128)
     pereval_id = models.ForeignKey(Pereval, on_delete=models.CASCADE, related_name='images')
 
+    # def __str__(self):
+    #     return self.title
+
+    # для функции: сохранить фото в файл media
     def __str__(self):
-        return self.title
+        return f"{self.pk}: {self.title}"
+
+    class Meta:
+        verbose_name = "pictures"
+        verbose_name_plural = "pictures"
