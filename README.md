@@ -158,7 +158,7 @@ _______
 ***Проект опубликован на хостинге pythonanywhere.com***
 
 *API **Pereval**: https://olegafonick.pythonanywhere.com/Pereval/*<br/>
-*Документация **swagger**: https://konstantin-sama.pythonanywhere.com/swagger/<br/>*
+*Документация **swagger**: https://KalinkinKonstantin01.pythonanywhere.com/swagger/<br/>*
 *Документация **redoc**: https://olegafonick.pythonanywhere.com/redoc/*
 
 ______
