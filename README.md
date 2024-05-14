@@ -42,13 +42,13 @@ POST/Pereval/
   "connect": "", //что соединяет, текстовое поле
  
   "add_time": "2021-09-22 13:18:13",
-  "user": {"email": "qwerty@mail.ru", 		
-        "fam": "Пупкин",
-		 "name": "Василий",
-		 "otc": "Иванович",
+  "tourist_id": {"email": "qwerty@mail.ru", 		
+        "last_name": "Пупкин",
+		 "first_name": "Василий",
+		 "patronymic": "Иванович",
         "phone": "+7 555 55 55"}, 
  
-   "coords":{
+   "coord_id":{
   "latitude": "45.3842",
   "longitude": "7.1525",
   "height": "1200"}
