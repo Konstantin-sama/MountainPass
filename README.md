@@ -144,7 +144,7 @@ ______
 ***Документация сгенерирована с помощью пакета `drf-yasg`*** 
 
 *Документация **swagger**: http://127.0.0.1:8000/swagger/*<br/>
-*Приложение на хостинге **pythonanywhere.com**: https://kalinkinkonstantin01.pythonanywhere.com/
+Приложение на хостинге **pythonanywhere.com**: https://kalinkinkonstantin01.pythonanywhere.com/
 *Документация **redoc**: http://127.0.0.1:8000/redoc/*
 
 ______
