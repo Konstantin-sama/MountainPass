@@ -1,4 +1,5 @@
 # Register your models here.
+# Модели для администрирования
 
 from django.contrib import admin
 
