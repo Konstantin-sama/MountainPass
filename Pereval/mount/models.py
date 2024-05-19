@@ -1,6 +1,6 @@
 from django.db import models
 
-# для функции: сохранить фото в файл media
+# Для функции: сохранить фото в файл media через админ панель
 from .services import get_path_upload_photos
 
 
@@ -31,7 +31,7 @@ class Pereval(models.Model):
     add_time = models.DateTimeField(auto_now_add=True)
     coord_id = models.OneToOneField('Coords', on_delete=models.CASCADE)
     tourist_id = models.ForeignKey(Users, on_delete=models.CASCADE)
-    status = models.CharField(max_length=2, choices=STATUS_CHOICES, default=NEW)
+    status = models.CharField(max_length=2, choices=STATUS_CHOICES, default="NW")
     level = models.ForeignKey('Level', on_delete=models.CASCADE)
 
 
@@ -60,17 +60,19 @@ class Level(models.Model):
 
 
 class Images(models.Model):
+    # # Переход к изображению по ссылке
     # image = models.ImageField(upload_to='static/images')
 
-    # для функции: сохранить фото в файл media
+    # Для функции: сохранить фото в файл media через админ панель
     image = models.ImageField(upload_to=get_path_upload_photos, verbose_name='picture', blank=True, null=True)
     title = models.CharField(max_length=128)
     pereval_id = models.ForeignKey(Pereval, on_delete=models.CASCADE, related_name='images')
 
+    # # Переход к изображению по ссылке
     # def __str__(self):
     #     return self.title
 
-    # для функции: сохранить фото в файл media
+    # Для функции: сохранить фото в файл media через админ панель
     def __str__(self):
         return f"{self.pk}: {self.title}"
 

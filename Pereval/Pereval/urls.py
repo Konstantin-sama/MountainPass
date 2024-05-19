@@ -22,7 +22,7 @@ from mount import views
 from .yasg import urlpatterns as doc_urls
 
 router = routers.DefaultRouter()
-router.register(r'tourist_id', views.UserViewset, basename='tourist_id')
+router.register(r'user', views.UserViewset, basename='user')
 router.register(r'coords', views.CoordsViewset, basename='coords')
 router.register(r'levels', views.LevelViewset, basename='levels')
 router.register(r'images', views.ImageViewset, basename='images')

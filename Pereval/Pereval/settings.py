@@ -84,6 +84,11 @@ WSGI_APPLICATION = 'Pereval.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# выгрузка данных: python manage.py dumpdata --format=json > mydata.json
+# выгрузка данных: python manage.py dumpdata --format=xml > mydata.xml
+# выгрузка данных из определенного приложения: python manage.py dumpdata --format=xml mount > mountdata.xml
+# очистка данных: python manage.py flush
+# загрузка данных: python manage.py loaddata mydata.json
 
 DATABASES = {
     'default': {
@@ -141,6 +146,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10
 }
+
+# для функции get_path_upload_photos
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'

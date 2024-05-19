@@ -6,7 +6,7 @@ from .models import *
 from .serializers import *
 
 
-# фильтр через views.py
+# фильтр через views.py, требует изменения в классах
 # import django_filters
 
 
@@ -14,7 +14,7 @@ class UserViewset(viewsets.ModelViewSet):
     queryset = Users.objects.all()
     serializer_class = UserSerializer
 
-    # фильтр через views.py
+    # фильтр через views.py, требует изменения в классах
     # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
     # filterset_fields = ['email', 'last_name', 'first_name', 'patronymic', 'phone']
 
@@ -39,7 +39,7 @@ class PerevalViewset(viewsets.ModelViewSet):
     serializer_class = PerevalSerializer
     filterset_fields = ('tourist_id__email',)
 
-    # фильтр через views.py
+    # фильтр через views.py, требует изменения в классах
     # filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
 
     def create(self, request, *args, **kwargs):
@@ -66,7 +66,7 @@ class PerevalViewset(viewsets.ModelViewSet):
 
     def partial_update(self, request, *args, **kwargs):
         pereval = self.get_object()
-        if pereval.status == 'new':
+        if pereval.status == 'NW':
             serializer = PerevalSerializer(pereval, data=request.data, partial=True)
             if serializer.is_valid():
                 serializer.save()
