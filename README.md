@@ -59,7 +59,7 @@ POST/perevals/
   "autumn": "1А",
   "spring": ""},
  
-   images: [{data:"<картинка1>", title:"Седловина"}, {data:"<картинка>", title:"Подъём"}]
+   images: [{"image":"<картинка1>", "title":"Седловина"}, {"image":"<картинка>", "title":"Подъём"}]
 }
 ```
 
