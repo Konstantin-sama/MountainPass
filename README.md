@@ -42,7 +42,7 @@ POST/perevals/
   "connect": "", //что соединяет, текстовое поле
  
   "add_time": "2021-09-22 13:18:13",
-  "tourist_id": {"email": "qwerty@mail.ru", 		
+  "user": {"email": "qwerty@mail.ru", 		
         "last_name": "Пупкин",
 		 "first_name": "Василий",
 		 "patronymic": "Иванович",
@@ -131,7 +131,7 @@ _____
 ***Метод:***
    
 ```
-GET /perevals/?tourist_id__email=<email>
+GET /perevals/?user__email=<email>
 ```
 
 *позволяет получить данные всех объектов, отправленных на сервер пользователем с почтой.* 
