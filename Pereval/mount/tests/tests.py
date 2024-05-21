@@ -34,9 +34,9 @@ class PerevalApiTestCase(APITestCase):
             ),
             level=Level.objects.create(
                 winter='1A',
+                spring='1A',
                 summer='1A',
-                autumn='1A',
-                spring='1A'
+                autumn='1A'
             )
         )
         Images.objects.create([
@@ -63,9 +63,9 @@ class PerevalApiTestCase(APITestCase):
             ),
             level=Level.objects.create(
                 winter='',
+                spring='1A',
                 summer='1A',
-                autumn='1A',
-                spring='1A'
+                autumn='1A'
             )
         )
         Images.objects.create([
@@ -93,9 +93,9 @@ class PerevalApiTestCase(APITestCase):
             ),
             level=Level.objects.create(
                 winter='',
+                spring='',
                 summer='1A',
-                autumn='1A',
-                spring=''
+                autumn='1A'
             )
         )
         Images.objects.create([
@@ -135,9 +135,9 @@ class PrevalSerializerTestCase(TestCase):
             ),
             level=Level.objects.create(
                 winter='1A',
+                spring='1A',
                 summer='1A',
-                autumn='1A',
-                spring='1A'
+                autumn='1A'
             )
         )
         Images.objects.create([
@@ -164,9 +164,9 @@ class PrevalSerializerTestCase(TestCase):
             ),
             level=Level.objects.create(
                 winter='',
+                spring='1A',
                 summer='1A',
-                autumn='1A',
-                spring='1A'
+                autumn='1A'
             )
         )
         Images.objects.create([
@@ -194,9 +194,9 @@ class PrevalSerializerTestCase(TestCase):
             ),
             level=Level.objects.create(
                 winter='',
+                spring='',
                 summer='1A',
-                autumn='1A',
-                spring='1A'
+                autumn='1A'
             )
         )
         Images.objects.create([
@@ -226,9 +226,10 @@ class PrevalSerializerTestCase(TestCase):
                 },
                 'level': {
                     'winter': '',
+                    'spring': '1A',
                     'summer': '1A',
-                    'autumn': '1A',
-                    'spring': '1A'
+                    'autumn': '1A'
+
                 },
                 'images': [
                     {
@@ -256,9 +257,20 @@ class PrevalSerializerTestCase(TestCase):
                     "longitude": '22.22222',
                     "height": '1111'
                 },
-                "level": {"winter": "1A", "summer": "1A", "autumn": "1A", "spring": "1A"},
-                "images": [{"image": "https://images.com/image1.jpg", "title": "Title 1"},
-                           {"image": "https://images.com/image2.jpg", "title": "Title 1"}]
+                "level": {
+                    "winter": "1A",
+                    "spring": "1A",
+                    "summer": "1A",
+                    "autumn": "1A"
+                },
+                "images": [
+                    {
+                        "image": "https://images.com/image1.jpg", "title": "Title 1"
+                    },
+                    {
+                        "image": "https://images.com/image2.jpg", "title": "Title 1"
+                    }
+                ]
             }
         ]
 
