@@ -104,7 +104,7 @@ class PerevalApiTestCase(APITestCase):
         ])
 
     def test_get(self):
-        url = reverse('perevals-list')
+        url = reverse('perevals')
         resource = self.client.get(url)
         serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2, self.pereval_3], many=True).data
         # сравнивает serializer_data и resource.data
