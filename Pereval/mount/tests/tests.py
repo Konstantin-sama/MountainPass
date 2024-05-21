@@ -22,9 +22,9 @@ class PerevalApiTestCase(APITestCase):
             connect='',
             tourist_id=Users.objects.create(
                 email='user1@mail.ru',
-                last_name='Фамилия 1',
-                first_name='Имя 1',
-                patronymic='Отчество 1',
+                last_name='lastname1',
+                first_name='firstname1',
+                patronymic='patronymic1',
                 phone='+11111111111'
             ),
             coord_id=Coords.objects.create(
@@ -51,9 +51,9 @@ class PerevalApiTestCase(APITestCase):
             connect='',
             tourist_id=Users.objects.create(
                 email='user2@mail.ru',
-                last_name='Фамилия 2',
-                first_name='Имя 2',
-                patronymic='Отчество 2',
+                last_name='lastname2',
+                first_name='firstname2',
+                patronymic='partonymic2',
                 phone='+22222222222'
             ),
             coord_id=Coords.objects.create(
@@ -81,9 +81,9 @@ class PerevalApiTestCase(APITestCase):
             connect='',
             tourist_id=Users.objects.create(
                 email='user3@mail.ru',
-                last_name='Фамилия 3',
-                first_name='Имя 3',
-                patronymic='Отчество 3',
+                last_name='lastname3',
+                first_name='firstname3',
+                patronymic='patronymic3',
                 phone='+33333333333'
             ),
             coord_id=Coords.objects.create(
@@ -123,9 +123,9 @@ class PrevalSerializerTestCase(TestCase):
             connect='',
             tourist_id=Users.objects.create(
                 email='user1@mail.ru',
-                last_name='Фамилия 1',
-                first_name='Имя 1',
-                patronymic='Отчество 1',
+                last_name='lastname1',
+                first_name='firstname1',
+                patronymic='patronymic1',
                 phone='+11111111111'
             ),
             coord_id=Coords.objects.create(
@@ -152,9 +152,9 @@ class PrevalSerializerTestCase(TestCase):
             connect='',
             tourist_id=Users.objects.create(
                 email='user2@mail.ru',
-                last_name='Фамилия 2',
-                first_name='Имя 2',
-                patronymic='Отчество 2',
+                last_name='lastname2',
+                first_name='firstname2',
+                patronymic='patronymic2',
                 phone='+22222222222'
             ),
             coord_id=Coords.objects.create(
@@ -182,9 +182,9 @@ class PrevalSerializerTestCase(TestCase):
             connect='',
             tourist_id=Users.objects.create(
                 email='user3@mail.ru',
-                last_name='Фамилия 3',
-                first_name='Имя 3',
-                patronymic='Отчество 3',
+                last_name='lastname3',
+                first_name='firstname3',
+                patronymic='patronymic3',
                 phone='+33333333333'
             ),
             coord_id=Coords.objects.create(
@@ -196,7 +196,7 @@ class PrevalSerializerTestCase(TestCase):
                 winter='',
                 summer='1A',
                 autumn='1A',
-                spring=''
+                spring='1A'
             )
         )
         # Images.objects.bulk_create([
@@ -208,57 +208,57 @@ class PrevalSerializerTestCase(TestCase):
         serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2, self.pereval_3], many=True).data
         expected_data = [
             {
-                'beauty_title': 'пер. ',
-                'title': 'Пхия',
-                'other_titles': 'Триев',
+                'beauty_title': 'Beauty title 2',
+                'title': 'Title 2',
+                'other_titles': 'Other titles 2',
                 'connect': '',
                 'tourist_id': {
-                    'email': 'qwerty@mail.ru',
-                    'last_name': 'Пупкин',
-                    'first_name': 'Василий',
-                    'patronymic': 'Иванович',
-                    'phone': '+7 555 55 55'
+                    'email': 'user2@mail.ru',
+                    'last_name': 'lastname2',
+                    'first_name': 'firstname2',
+                    'patronymic': 'patronymic2',
+                    'phone': '+22222222222'
                 },
                 'coord_id': {
-                    'height': 1200,
-                    'latitude': 45.3842,
-                    'longtitude': 7.1525
+                    'height': 33.33333,
+                    'latitude': 44.44444,
+                    'longtitude': 2222
                 },
                 'level': {
                     'winter': '',
-                    'summer': '1А',
-                    'autumn': '1А',
-                    'spring': ''
+                    'summer': '1A',
+                    'autumn': '1A',
+                    'spring': '1A'
                 },
                 'images': [
                     {
-                        'image': 'https://images.com/image1.jpg', 'title': 'Седловина'
+                        'image': 'https://images.com/image1.jpg', 'title': 'lowpereval'
                     },
                     {
-                        'image': 'https://images.com/image2.jpg', 'title': 'Подъём'
+                        'image': 'https://images.com/image2.jpg', 'title': 'appereval'
                     }
                 ]
             },
             {
-                "beauty_title": "beauty_title11",
-                "title": "title11",
-                "other_titles": "other_titles11",
-                "connect": "connect11",
+                "beauty_title": "beauty_title 1",
+                "title": "title 1",
+                "other_titles": "other_titles 1",
+                "connect": "",
                 "tourist_id": {
-                    "email": "post@mail.ru",
-                    "last_name": "Фамилия11",
-                    "first_name": "Имя11",
-                    "patronymic": "Отчество11",
-                    "phone": "89999900"
+                    "email": "user1@mail.ru",
+                    "last_name": "lastname1",
+                    "first_name": "firstname1",
+                    "patronymic": "patronymic11",
+                    "phone": "+11111111111"
                 },
                 "coord_id": {
-                    "latitude": 45.42,
-                    "longitude": 77.15,
-                    "height": 120
+                    "latitude": 11.11111,
+                    "longitude": 22.22222,
+                    "height": 1111
                 },
-                "level": {"winter_lev": "4A", "summer_lev": "4А", "autumn_lev": "4А", "spring_lev": "4A"},
-                "images": [{"image": "https://images.jpg", "title": "перевал"},
-                           {"image": "https://avatars-images.jpg", "title": "подъём"}]
+                "level": {"winter_lev": "1A", "summer_lev": "1A", "autumn_lev": "1A", "spring_lev": "1A"},
+                "images": [{"image": "https://images.jpg", "title": "lowpereval"},
+                           {"image": "https://avatars-images.jpg", "title": "uppereval"}]
             }
         ]
 
