@@ -35,8 +35,8 @@
 #             )
 #         )
 #         Images.objects.bulk_create([
-#             Images(image='https://images.com/image1.jpg', title='Title 1'),
-#             Images(image='https://images.com/image2.jpg', title='Title 2'),
+#             Images(pereval=self.pereval1, image='https://images.com/image1.jpg', title='Title 1'),
+#             Images(pereval=self.pereval1, image='https://images.com/image2.jpg', title='Title 2'),
 #         ])
 #
 #         self.pereval2 = Pereval.objects.create(
@@ -64,8 +64,8 @@
 #             )
 #         )
 #         Images.objects.bulk_create([
-#             Images(image='https://images.com/image3.jpg', title='Title 3'),
-#             Images(image='https://images.com/image4.jpg', title='Title 4'),
+#             Images(pereval=self.pereval2, image='https://images.com/image3.jpg', title='Title 3'),
+#             Images(pereval=self.pereval2, image='https://images.com/image4.jpg', title='Title 4'),
 #         ])
 #
 #         self.pereval3 = Pereval.objects.create(
@@ -94,8 +94,8 @@
 #             )
 #         )
 #         Images.objects.bulk_create([
-#             Images(image='https://images.com/image5.jpg', title='Title 5'),
-#             Images(image='https://images.com/image6.jpg', title='Title 6'),
+#             Images(pereval=self.pereval3, image='https://images.com/image5.jpg', title='Title 5'),
+#             Images(pereval=self.pereval3, image='https://images.com/image6.jpg', title='Title 6'),
 #         ])
 #
 #

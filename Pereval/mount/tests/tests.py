@@ -3,7 +3,7 @@ from django.urls import reverse
 from rest_framework import status, response
 from rest_framework.test import APITestCase
 
-from mount.models import Pereval, Users, Coords, Level
+from mount.models import Pereval, Users, Coords, Level, Images
 from mount.serializers import PerevalSerializer
 
 
@@ -39,10 +39,10 @@ class PerevalApiTestCase(APITestCase):
                 spring='1A'
             )
         )
-        # Images.objects.bulk_create([
-        #     Images(image='https://images.com/image1.jpg', title='Title 1'),
-        #     Images(image='https://images.com/image2.jpg', title='Title 2'),
-        # ])
+        Images.objects.bulk_create([
+            Images(pereval=self.pereval_1, image='https://images.com/image1.jpg', title='Title 1'),
+            Images(pereval=self.pereval_1, image='https://images.com/image2.jpg', title='Title 2'),
+        ])
 
         self.pereval_2 = Pereval.objects.create(
             beauty_title='Beauty title 2',
@@ -68,12 +68,12 @@ class PerevalApiTestCase(APITestCase):
                 spring='1A'
             )
         )
-        # Images.objects.bulk_create([
-        #     Images(image='https://images.com/image3.jpg', title='Title 3'),
-        #     Images(image='https://images.com/image4.jpg', title='Title 4'),
-        # ])
+        Images.objects.bulk_create([
+            Images(pereval=self.pereval_2, image='https://images.com/image3.jpg', title='Title 3'),
+            Images(pereval=self.pereval_2, image='https://images.com/image4.jpg', title='Title 4'),
+        ])
 
-        self.pereval3 = Pereval.objects.create(
+        self.pereval_3 = Pereval.objects.create(
             status='PN',
             beauty_title='Beauty title 3',
             title='Title 3',
@@ -98,10 +98,10 @@ class PerevalApiTestCase(APITestCase):
                 spring=''
             )
         )
-        # Images.objects.bulk_create([
-        #     Images(image='https://images.com/image5.jpg', title='Title 5'),
-        #     Images(image='https://images.com/image6.jpg', title='Title 6'),
-        # ])
+        Images.objects.bulk_create([
+            Images(pereval=self.pereval_3, image='https://images.com/image5.jpg', title='Title 5'),
+            Images(pereval=self.pereval_3, image='https://images.com/image6.jpg', title='Title 6'),
+        ])
 
     def test_get(self):
         url = reverse('perevals-list')
@@ -140,10 +140,10 @@ class PrevalSerializerTestCase(TestCase):
                 spring='1A'
             )
         )
-        # Images.objects.bulk_create([
-        #     Images(image='https://images.com/image1.jpg', title='Title 1'),
-        #     Images(image='https://images.com/image2.jpg', title='Title 2'),
-        # ])
+        Images.objects.bulk_create([
+            Images(pereval=self.pereval_1, image='https://images.com/image1.jpg', title='Title 1'),
+            Images(pereval=self.pereval_1, image='https://images.com/image2.jpg', title='Title 2'),
+        ])
 
         self.pereval_2 = Pereval.objects.create(
             beauty_title='Beauty title 2',
@@ -169,10 +169,10 @@ class PrevalSerializerTestCase(TestCase):
                 spring='1A'
             )
         )
-        # Images.objects.bulk_create([
-        #     Images(image='https://images.com/image3.jpg', title='Title 3'),
-        #     Images(image='https://images.com/image4.jpg', title='Title 4'),
-        # ])
+        Images.objects.bulk_create([
+            Images(pereval=self.pereval_2, image='https://images.com/image3.jpg', title='Title 3'),
+            Images(pereval=self.pereval_2, image='https://images.com/image4.jpg', title='Title 4'),
+        ])
 
         self.pereval3 = Pereval.objects.create(
             status='PN',
@@ -199,10 +199,10 @@ class PrevalSerializerTestCase(TestCase):
                 spring='1A'
             )
         )
-        # Images.objects.bulk_create([
-        #     Images(image='https://images.com/image5.jpg', title='Title 5'),
-        #     Images(image='https://images.com/image6.jpg', title='Title 6'),
-        # ])
+        Images.objects.bulk_create([
+            Images(pereval=self.pereval_3, image='https://images.com/image5.jpg', title='Title 5'),
+            Images(pereval=self.pereval_3, image='https://images.com/image6.jpg', title='Title 6'),
+        ])
 
     def test_check(self):
         serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2, self.pereval_3], many=True).data
@@ -232,10 +232,10 @@ class PrevalSerializerTestCase(TestCase):
                 },
                 'images': [
                     {
-                        'image': 'https://images.com/image1.jpg', 'title': 'lowpereval'
+                        'image': 'https://images.com/image3.jpg', 'title': 'Title 3'
                     },
                     {
-                        'image': 'https://images.com/image2.jpg', 'title': 'appereval'
+                        'image': 'https://images.com/image4.jpg', 'title': 'Title 4'
                     }
                 ]
             },
@@ -256,9 +256,9 @@ class PrevalSerializerTestCase(TestCase):
                     "longitude": 22.22222,
                     "height": 1111
                 },
-                "level": {"winter_lev": "1A", "summer_lev": "1A", "autumn_lev": "1A", "spring_lev": "1A"},
-                "images": [{"image": "https://images.jpg", "title": "lowpereval"},
-                           {"image": "https://avatars-images.jpg", "title": "uppereval"}]
+                "level": {"winter": "1A", "summer": "1A", "autumn": "1A", "spring": "1A"},
+                "images": [{"image": "https://images.com/image1.jpg", "title": "Title 1"},
+                           {"image": "https://images.com/image2.jpg", "title": "Title 1"}]
             }
         ]
 
