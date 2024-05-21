@@ -28,9 +28,9 @@ class PerevalApiTestCase(APITestCase):
                 phone='+11111111111'
             ),
             coord_id=Coords.objects.create(
-                latitude=11.11111,
-                longtitude=22.22222,
-                height=1111
+                latitude='11.11111',
+                longitude='22.22222',
+                height='1111'
             ),
             level=Level.objects.create(
                 winter='1A',
@@ -39,7 +39,7 @@ class PerevalApiTestCase(APITestCase):
                 spring='1A'
             )
         )
-        Images.objects.bulk_create([
+        Images.objects.create([
             Images(pereval=self.pereval_1, image='https://images.com/image1.jpg', title='Title 1'),
             Images(pereval=self.pereval_1, image='https://images.com/image2.jpg', title='Title 2'),
         ])
@@ -57,9 +57,9 @@ class PerevalApiTestCase(APITestCase):
                 phone='+22222222222'
             ),
             coord_id=Coords.objects.create(
-                latitude=33.33333,
-                longtitude=44.44444,
-                height=2222
+                latitude='33.33333',
+                longitude='44.44444',
+                height='2222'
             ),
             level=Level.objects.create(
                 winter='',
@@ -68,7 +68,7 @@ class PerevalApiTestCase(APITestCase):
                 spring='1A'
             )
         )
-        Images.objects.bulk_create([
+        Images.objects.create([
             Images(pereval=self.pereval_2, image='https://images.com/image3.jpg', title='Title 3'),
             Images(pereval=self.pereval_2, image='https://images.com/image4.jpg', title='Title 4'),
         ])
@@ -87,9 +87,9 @@ class PerevalApiTestCase(APITestCase):
                 phone='+33333333333'
             ),
             coord_id=Coords.objects.create(
-                latitude=55.55555,
-                longtitude=66.66666,
-                height=3333
+                latitude='55.55555',
+                longitude='66.66666',
+                height='3333'
             ),
             level=Level.objects.create(
                 winter='',
@@ -98,7 +98,7 @@ class PerevalApiTestCase(APITestCase):
                 spring=''
             )
         )
-        Images.objects.bulk_create([
+        Images.objects.create([
             Images(pereval=self.pereval_3, image='https://images.com/image5.jpg', title='Title 5'),
             Images(pereval=self.pereval_3, image='https://images.com/image6.jpg', title='Title 6'),
         ])
@@ -129,9 +129,9 @@ class PrevalSerializerTestCase(TestCase):
                 phone='+11111111111'
             ),
             coord_id=Coords.objects.create(
-                latitude=11.11111,
-                longtitude=22.22222,
-                height=1111
+                latitude='11.11111',
+                longitude='22.22222',
+                height='1111'
             ),
             level=Level.objects.create(
                 winter='1A',
@@ -140,7 +140,7 @@ class PrevalSerializerTestCase(TestCase):
                 spring='1A'
             )
         )
-        Images.objects.bulk_create([
+        Images.objects.create([
             Images(pereval=self.pereval_1, image='https://images.com/image1.jpg', title='Title 1'),
             Images(pereval=self.pereval_1, image='https://images.com/image2.jpg', title='Title 2'),
         ])
@@ -158,9 +158,9 @@ class PrevalSerializerTestCase(TestCase):
                 phone='+22222222222'
             ),
             coord_id=Coords.objects.create(
-                latitude=33.33333,
-                longtitude=44.44444,
-                height=2222
+                latitude='33.33333',
+                longitude='44.44444',
+                height='2222'
             ),
             level=Level.objects.create(
                 winter='',
@@ -169,7 +169,7 @@ class PrevalSerializerTestCase(TestCase):
                 spring='1A'
             )
         )
-        Images.objects.bulk_create([
+        Images.objects.create([
             Images(pereval=self.pereval_2, image='https://images.com/image3.jpg', title='Title 3'),
             Images(pereval=self.pereval_2, image='https://images.com/image4.jpg', title='Title 4'),
         ])
@@ -189,7 +189,7 @@ class PrevalSerializerTestCase(TestCase):
             ),
             coord_id=Coords.objects.create(
                 latitude=55.55555,
-                longtitude=66.66666,
+                longitude=66.66666,
                 height=3333
             ),
             level=Level.objects.create(
@@ -199,7 +199,7 @@ class PrevalSerializerTestCase(TestCase):
                 spring='1A'
             )
         )
-        Images.objects.bulk_create([
+        Images.objects.create([
             Images(pereval=self.pereval_3, image='https://images.com/image5.jpg', title='Title 5'),
             Images(pereval=self.pereval_3, image='https://images.com/image6.jpg', title='Title 6'),
         ])
@@ -220,9 +220,9 @@ class PrevalSerializerTestCase(TestCase):
                     'phone': '+22222222222'
                 },
                 'coord_id': {
-                    'height': 33.33333,
-                    'latitude': 44.44444,
-                    'longtitude': 2222
+                    'height': '33.33333',
+                    'latitude': '44.44444',
+                    'longitude': '2222'
                 },
                 'level': {
                     'winter': '',
@@ -252,9 +252,9 @@ class PrevalSerializerTestCase(TestCase):
                     "phone": "+11111111111"
                 },
                 "coord_id": {
-                    "latitude": 11.11111,
-                    "longitude": 22.22222,
-                    "height": 1111
+                    "latitude": '11.11111',
+                    "longitude": '22.22222',
+                    "height": '1111'
                 },
                 "level": {"winter": "1A", "summer": "1A", "autumn": "1A", "spring": "1A"},
                 "images": [{"image": "https://images.com/image1.jpg", "title": "Title 1"},
