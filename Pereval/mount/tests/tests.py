@@ -33,15 +33,15 @@ class PerevalApiTestCase(APITestCase):
                 height='1111'
             ),
             level=Level.objects.create(
-                winter='1A',
-                spring='1A',
-                summer='1A',
-                autumn='1A'
+                winter_lev='1A',
+                spring_lev='1A',
+                summer_lev='1A',
+                autumn_lev='1A'
             )
         )
         Images.objects.create([
-            Images(pereval=self.pereval_1, image='https://images.com/image1.jpg', title='Title 1'),
-            Images(pereval=self.pereval_1, image='https://images.com/image2.jpg', title='Title 2'),
+            Images(image='https://images.com/image1.jpg', pereval_id=self.pereval_1, title='Title 1'),
+            Images(image='https://images.com/image2.jpg', pereval_id=self.pereval_1, title='Title 2'),
         ])
 
         self.pereval_2 = Pereval.objects.create(
@@ -62,15 +62,15 @@ class PerevalApiTestCase(APITestCase):
                 height='2222'
             ),
             level=Level.objects.create(
-                winter='',
-                spring='1A',
-                summer='1A',
-                autumn='1A'
+                winter_lev='',
+                spring_lev='1A',
+                summer_lev='1A',
+                autumn_lev='1A'
             )
         )
         Images.objects.create([
-            Images(pereval=self.pereval_2, image='https://images.com/image3.jpg', title='Title 3'),
-            Images(pereval=self.pereval_2, image='https://images.com/image4.jpg', title='Title 4'),
+            Images(image='https://images.com/image3.jpg', pereval_id=self.pereval_2, title='Title 3'),
+            Images(image='https://images.com/image4.jpg', pereval_id=self.pereval_2, title='Title 4'),
         ])
 
         self.pereval_3 = Pereval.objects.create(
@@ -92,15 +92,15 @@ class PerevalApiTestCase(APITestCase):
                 height='3333'
             ),
             level=Level.objects.create(
-                winter='',
-                spring='',
-                summer='1A',
-                autumn='1A'
+                winter_lev='',
+                spring_lev='',
+                summer_lev='1A',
+                autumn_lev='1A'
             )
         )
         Images.objects.create([
-            Images(pereval=self.pereval_3, image='https://images.com/image5.jpg', title='Title 5'),
-            Images(pereval=self.pereval_3, image='https://images.com/image6.jpg', title='Title 6'),
+            Images(image='https://images.com/image5.jpg', pereval_id=self.pereval_3, title='Title 5'),
+            Images(image='https://images.com/image6.jpg', pereval_id=self.pereval_3, title='Title 6'),
         ])
 
     def test_get(self):
@@ -134,15 +134,15 @@ class PrevalSerializerTestCase(TestCase):
                 height='1111'
             ),
             level=Level.objects.create(
-                winter='1A',
-                spring='1A',
-                summer='1A',
-                autumn='1A'
+                winter_lev='1A',
+                spring_lev='1A',
+                summer_lev='1A',
+                autumn_lev='1A'
             )
         )
         Images.objects.create([
-            Images(pereval=self.pereval_1, image='https://images.com/image1.jpg', title='Title 1'),
-            Images(pereval=self.pereval_1, image='https://images.com/image2.jpg', title='Title 2'),
+            Images(image='https://images.com/image1.jpg', pereval_id=self.pereval_1, title='Title 1'),
+            Images(image='https://images.com/image2.jpg', pereval_id=self.pereval_1, title='Title 2'),
         ])
 
         self.pereval_2 = Pereval.objects.create(
@@ -163,15 +163,15 @@ class PrevalSerializerTestCase(TestCase):
                 height='2222'
             ),
             level=Level.objects.create(
-                winter='',
-                spring='1A',
-                summer='1A',
-                autumn='1A'
+                winter_lev='',
+                spring_lev='1A',
+                summer_lev='1A',
+                autumn_lev='1A'
             )
         )
         Images.objects.create([
-            Images(pereval=self.pereval_2, image='https://images.com/image3.jpg', title='Title 3'),
-            Images(pereval=self.pereval_2, image='https://images.com/image4.jpg', title='Title 4'),
+            Images(image='https://images.com/image3.jpg', pereval_id=self.pereval_2, title='Title 3'),
+            Images(image='https://images.com/image4.jpg', pereval_id=self.pereval_2, title='Title 4'),
         ])
 
         self.pereval3 = Pereval.objects.create(
@@ -193,15 +193,15 @@ class PrevalSerializerTestCase(TestCase):
                 height=3333
             ),
             level=Level.objects.create(
-                winter='',
-                spring='',
-                summer='1A',
-                autumn='1A'
+                winter_lev='',
+                spring_lev='',
+                summer_lev='1A',
+                autumn_lev='1A'
             )
         )
         Images.objects.create([
-            Images(pereval=self.pereval_3, image='https://images.com/image5.jpg', title='Title 5'),
-            Images(pereval=self.pereval_3, image='https://images.com/image6.jpg', title='Title 6'),
+            Images(image='https://images.com/image5.jpg', pereval_id=self.pereval_3, title='Title 5'),
+            Images(image='https://images.com/image6.jpg', pereval_id=self.pereval_3, title='Title 6'),
         ])
 
     def test_check(self):
@@ -225,10 +225,10 @@ class PrevalSerializerTestCase(TestCase):
                     'longitude': '2222'
                 },
                 'level': {
-                    'winter': '',
-                    'spring': '1A',
-                    'summer': '1A',
-                    'autumn': '1A'
+                    'winter_lev': '',
+                    'spring_lev': '1A',
+                    'summer_lev': '1A',
+                    'autumn_lev': '1A'
 
                 },
                 'images': [
@@ -258,10 +258,10 @@ class PrevalSerializerTestCase(TestCase):
                     "height": '1111'
                 },
                 "level": {
-                    "winter": "1A",
-                    "spring": "1A",
-                    "summer": "1A",
-                    "autumn": "1A"
+                    "winter_lev": "1A",
+                    "spring_lev": "1A",
+                    "summer_lev": "1A",
+                    "autumn_lev": "1A"
                 },
                 "images": [
                     {
@@ -275,3 +275,5 @@ class PrevalSerializerTestCase(TestCase):
         ]
 
         self.assertEqual(serializer_data, expected_data)
+
+# python manage.py test .
