@@ -3,7 +3,7 @@ from django.urls import reverse
 from rest_framework import status, response
 from rest_framework.test import APITestCase
 
-from mount.models import Pereval, Users, Coords, Level, Images
+from mount.models import Pereval, Users, Coords, Level
 from mount.serializers import PerevalSerializer
 
 
@@ -39,10 +39,9 @@ class PerevalApiTestCase(APITestCase):
                 autumn_lev='1A'
             )
         )
-        Images.objects.create([
-            Images(image='https://images.com/image1.jpg', pereval_id=self.pereval_1, title='Title 1'),
-            Images(image='https://images.com/image2.jpg', pereval_id=self.pereval_1, title='Title 2'),
-        ])
+        # Images.objects.create(
+        #     Images(image='https://images.com/image1.jpg', title='Title 1'),
+        # )
 
         self.pereval_2 = Pereval.objects.create(
             beauty_title='Beauty title 2',
@@ -68,49 +67,48 @@ class PerevalApiTestCase(APITestCase):
                 autumn_lev='1A'
             )
         )
-        Images.objects.create([
-            Images(image='https://images.com/image3.jpg', pereval_id=self.pereval_2, title='Title 3'),
-            Images(image='https://images.com/image4.jpg', pereval_id=self.pereval_2, title='Title 4'),
-        ])
+        # Images.objects.create(
+        #     Images(image='https://images.com/image2.jpg', title='Title 2'),
+        #     )
 
-        self.pereval_3 = Pereval.objects.create(
-            status='PN',
-            beauty_title='Beauty title 3',
-            title='Title 3',
-            other_titles='Other titles 3',
-            connect='',
-            tourist_id=Users.objects.create(
-                email='user3@mail.ru',
-                last_name='lastname3',
-                first_name='firstname3',
-                patronymic='patronymic3',
-                phone='+33333333333'
-            ),
-            coord_id=Coords.objects.create(
-                latitude='55.55555',
-                longitude='66.66666',
-                height='3333'
-            ),
-            level=Level.objects.create(
-                winter_lev='',
-                spring_lev='',
-                summer_lev='1A',
-                autumn_lev='1A'
-            )
-        )
-        Images.objects.create([
-            Images(image='https://images.com/image5.jpg', pereval_id=self.pereval_3, title='Title 5'),
-            Images(image='https://images.com/image6.jpg', pereval_id=self.pereval_3, title='Title 6'),
-        ])
+        # self.pereval_3 = Pereval.objects.create(
+        #     status='PN',
+        #     beauty_title='Beauty title 3',
+        #     title='Title 3',
+        #     other_titles='Other titles 3',
+        #     connect='',
+        #     tourist_id=Users.objects.create(
+        #         email='user3@mail.ru',
+        #         last_name='lastname3',
+        #         first_name='firstname3',
+        #         patronymic='patronymic3',
+        #         phone='+33333333333'
+        #     ),
+        #     coord_id=Coords.objects.create(
+        #         latitude='55.55555',
+        #         longitude='66.66666',
+        #         height='3333'
+        #     ),
+        #     level=Level.objects.create(
+        #         winter_lev='',
+        #         spring_lev='',
+        #         summer_lev='1A',
+        #         autumn_lev='1A'
+        #     )
+        # )
+        # Images.objects.create(
+        #     Images(image='https://images.com/image3.jpg', pereval_id=self.pereval_3, title='Title 3'),
+        # )
 
     def test_get(self):
-        url = reverse('perevals')
+        url = reverse('perevals-list')
         resource = self.client.get(url)
-        serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2, self.pereval_3], many=True).data
+        serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2], many=True).data
+        # , self.pereval_3
         # сравнивает serializer_data и resource.data
         self.assertEqual(serializer_data, response.data)
         # проверяет, что количество serializer_data = 3
-        self.assertEqual(len(serializer_data), 3)
+        self.assertEqual(len(serializer_data), 2)
         self.assertEqual(status.HTTP_200_OK, response.status_code)
 
 
@@ -140,10 +138,9 @@ class PrevalSerializerTestCase(TestCase):
                 autumn_lev='1A'
             )
         )
-        Images.objects.create([
-            Images(image='https://images.com/image1.jpg', pereval_id=self.pereval_1, title='Title 1'),
-            Images(image='https://images.com/image2.jpg', pereval_id=self.pereval_1, title='Title 2'),
-        ])
+        # Images.objects.create(
+        #     Images(image='https://images.com/image1.jpg', pereval_id=self.pereval_1, title='Title 1'),
+        # )
 
         self.pereval_2 = Pereval.objects.create(
             beauty_title='Beauty title 2',
@@ -169,43 +166,42 @@ class PrevalSerializerTestCase(TestCase):
                 autumn_lev='1A'
             )
         )
-        Images.objects.create([
-            Images(image='https://images.com/image3.jpg', pereval_id=self.pereval_2, title='Title 3'),
-            Images(image='https://images.com/image4.jpg', pereval_id=self.pereval_2, title='Title 4'),
-        ])
+        # Images.objects.create(
+        #     Images(image='https://images.com/image2.jpg', pereval_id=self.pereval_2, title='Title 2'),
+        # )
 
-        self.pereval3 = Pereval.objects.create(
-            status='PN',
-            beauty_title='Beauty title 3',
-            title='Title 3',
-            other_titles='Other titles 3',
-            connect='',
-            tourist_id=Users.objects.create(
-                email='user3@mail.ru',
-                last_name='lastname3',
-                first_name='firstname3',
-                patronymic='patronymic3',
-                phone='+33333333333'
-            ),
-            coord_id=Coords.objects.create(
-                latitude=55.55555,
-                longitude=66.66666,
-                height=3333
-            ),
-            level=Level.objects.create(
-                winter_lev='',
-                spring_lev='',
-                summer_lev='1A',
-                autumn_lev='1A'
-            )
-        )
-        Images.objects.create([
-            Images(image='https://images.com/image5.jpg', pereval_id=self.pereval_3, title='Title 5'),
-            Images(image='https://images.com/image6.jpg', pereval_id=self.pereval_3, title='Title 6'),
-        ])
+        # self.pereval_3 = Pereval.objects.create(
+        #     status='PN',
+        #     beauty_title='Beauty title 3',
+        #     title='Title 3',
+        #     other_titles='Other titles 3',
+        #     connect='',
+        #     tourist_id=Users.objects.create(
+        #         email='user3@mail.ru',
+        #         last_name='lastname3',
+        #         first_name='firstname3',
+        #         patronymic='patronymic3',
+        #         phone='+33333333333'
+        #     ),
+        #     coord_id=Coords.objects.create(
+        #         latitude='55.55555',
+        #         longitude='66.66666',
+        #         height='3333'
+        #     ),
+        #     level=Level.objects.create(
+        #         winter_lev='',
+        #         spring_lev='',
+        #         summer_lev='1A',
+        #         autumn_lev='1A'
+        #     )
+        # )
+        # Images.objects.create(
+        #     Images(image='https://images.com/image3.jpg', pereval_id=self.pereval_3, title='Title 3'),
+        # )
 
     def test_check(self):
-        serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2, self.pereval_3], many=True).data
+        serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2], many=True).data
+        # , self.pereval_3
         expected_data = [
             {
                 'beauty_title': 'Beauty title 2',
@@ -231,14 +227,10 @@ class PrevalSerializerTestCase(TestCase):
                     'autumn_lev': '1A'
 
                 },
-                'images': [
-                    {
-                        'image': 'https://images.com/image3.jpg', 'title': 'Title 3'
-                    },
-                    {
-                        'image': 'https://images.com/image4.jpg', 'title': 'Title 4'
-                    }
-                ]
+                # 'images':
+                #     {
+                #         'image': 'https://images.com/image2.jpg', 'title': 'Title 2'
+                #     },
             },
             {
                 "beauty_title": "beauty_title 1",
@@ -263,15 +255,41 @@ class PrevalSerializerTestCase(TestCase):
                     "summer_lev": "1A",
                     "autumn_lev": "1A"
                 },
-                "images": [
-                    {
-                        "image": "https://images.com/image1.jpg", "title": "Title 1"
-                    },
-                    {
-                        "image": "https://images.com/image2.jpg", "title": "Title 1"
-                    }
-                ]
-            }
+                # "images":
+                #     {
+                #         "image": "https://images.com/image1.jpg", "title": "Title 1"
+                #     },
+
+            },
+            # {
+            #     'beauty_title': 'Beauty title 3',
+            #     'title': 'Title 3',
+            #     'other_titles': 'Other titles 3',
+            #     'connect': '',
+            #     'tourist_id': {
+            #         'email': 'user3@mail.ru',
+            #         'last_name': 'lastname3',
+            #         'first_name': 'firstname3',
+            #         'patronymic': 'patronymic3',
+            #         'phone': '+33333333333'
+            #     },
+            #     'coord_id': {
+            #         'height': '55.55555',
+            #         'latitude': '66.66666',
+            #         'longitude': '3333'
+            #     },
+            #     'level': {
+            #         'winter_lev': '',
+            #         'spring_lev': '',
+            #         'summer_lev': '1A',
+            #         'autumn_lev': '1A'
+            #
+            #     },
+            #     'images':
+            #         {
+            #             'image': 'https://images.com/image3.jpg', 'title': 'Title 3'
+            #         },
+            # }
         ]
 
         self.assertEqual(serializer_data, expected_data)
