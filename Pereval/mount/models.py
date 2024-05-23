@@ -28,7 +28,7 @@ class Pereval(models.Model):
     title = models.CharField(max_length=128)
     other_titles = models.CharField(max_length=128)
     connect = models.CharField(max_length=128)
-    add_time = models.DateTimeField(auto_now_add=True)
+    add_time = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     coord_id = models.OneToOneField('Coords', on_delete=models.CASCADE)
     tourist_id = models.ForeignKey(Users, on_delete=models.CASCADE)
     status = models.CharField(max_length=2, choices=STATUS_CHOICES, default="NW")
