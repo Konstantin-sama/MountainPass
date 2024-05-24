@@ -73,11 +73,11 @@ class PerevalApiTestCase(APITestCase):
         url = reverse('perevals-list')
         resource = self.client.get(url)
         serializer_data = PerevalSerializer([self.pereval_1, self.pereval_2], many=True).data
-        print('---------------------------------------')
-        print(serializer_data)
-        print('---------------------------------------')
-        print(resource.data)
-        print('---------------------------------------')
+        # print('---------------------------------------')
+        # print(serializer_data)
+        # print('---------------------------------------')
+        # print(resource.data)
+        # print('---------------------------------------')
 
         # сравнивает serializer_data и resource.data
         self.assertEqual(serializer_data, resource.data['results'])
@@ -201,11 +201,11 @@ class PrevalSerializerTestCase(TestCase):
             }
         ]
 
-        print("-------------------")
-        print(serializer_data)
-        print("-------------------")
-        print(expected_data)
-        print("-------------------")
+        # print("-------------------")
+        # print(serializer_data)
+        # print("-------------------")
+        # print(expected_data)
+        # print("-------------------")
         self.assertEqual(serializer_data, expected_data)
 
 # python manage.py test .
