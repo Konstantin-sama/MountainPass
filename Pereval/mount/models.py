@@ -1,6 +1,6 @@
 from django.db import models
 
-# Для функции: сохранить фото в файл media через админ панель
+# Р”Р»СЏ С„СѓРЅРєС†РёРё: СЃРѕС…СЂР°РЅРёС‚СЊ С„РѕС‚Рѕ РІ С„Р°Р№Р» media С‡РµСЂРµР· Р°РґРјРёРЅ РїР°РЅРµР»СЊ
 from .services import get_path_upload_photos
 
 
@@ -60,19 +60,19 @@ class Level(models.Model):
 
 
 class Images(models.Model):
-    # # Переход к изображению по ссылке
+    # # РџРµСЂРµС…РѕРґ Рє РёР·РѕР±СЂР°Р¶РµРЅРёСЋ РїРѕ СЃСЃС‹Р»РєРµ
     # image = models.ImageField(upload_to='static/images')
 
-    # Для функции: сохранить фото в файл media через админ панель
+    # Р”Р»СЏ С„СѓРЅРєС†РёРё: СЃРѕС…СЂР°РЅРёС‚СЊ С„РѕС‚Рѕ РІ С„Р°Р№Р» media С‡РµСЂРµР· Р°РґРјРёРЅ РїР°РЅРµР»СЊ
     image = models.ImageField(upload_to=get_path_upload_photos, verbose_name='picture', blank=True, null=True)
     title = models.CharField(max_length=128)
     pereval_id = models.ForeignKey(Pereval, on_delete=models.CASCADE, related_name='images')
 
-    # # Переход к изображению по ссылке
+    # # РџРµСЂРµС…РѕРґ Рє РёР·РѕР±СЂР°Р¶РµРЅРёСЋ РїРѕ СЃСЃС‹Р»РєРµ
     # def __str__(self):
     #     return self.title
 
-    # Для функции: сохранить фото в файл media через админ панель
+    # Р”Р»СЏ С„СѓРЅРєС†РёРё: СЃРѕС…СЂР°РЅРёС‚СЊ С„РѕС‚Рѕ РІ С„Р°Р№Р» media С‡РµСЂРµР· Р°РґРјРёРЅ РїР°РЅРµР»СЊ
     def __str__(self):
         return f"{self.pk}: {self.title}"
 
