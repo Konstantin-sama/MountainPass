@@ -1,5 +1,5 @@
 # Register your models here.
-# Модели для администрирования
+# РњРѕРґРµР»Рё РґР»СЏ Р°РґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёСЏ
 
 from django.contrib import admin
 

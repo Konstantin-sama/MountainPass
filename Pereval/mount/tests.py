@@ -79,9 +79,9 @@ class PerevalApiTestCase(APITestCase):
         # print(resource.data)
         # print('---------------------------------------')
 
-        # сравнивает serializer_data и resource.data
+        # СЃСЂР°РІРЅРёРІР°РµС‚ serializer_data Рё resource.data
         self.assertEqual(serializer_data, resource.data['results'])
-        # проверяет, что количество serializer_data = 2
+        # РїСЂРѕРІРµСЂСЏРµС‚, С‡С‚Рѕ РєРѕР»РёС‡РµСЃС‚РІРѕ serializer_data = 2
         self.assertEqual(len(serializer_data), 2)
         self.assertEqual(status.HTTP_200_OK, resource.status_code)
 

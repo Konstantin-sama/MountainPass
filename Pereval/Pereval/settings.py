@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'Pereval.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-# выгрузка данных: python manage.py dumpdata --format=json > mydata.json
-# выгрузка данных: python manage.py dumpdata --format=xml > mydata.xml
-# выгрузка данных из определенного приложения: python manage.py dumpdata --format=xml mount > mountdata.xml
-# очистка данных: python manage.py flush
-# загрузка данных: python manage.py loaddata mydata.json
+# РІС‹РіСЂСѓР·РєР° РґР°РЅРЅС‹С…: python manage.py dumpdata --format=json > mydata.json
+# РІС‹РіСЂСѓР·РєР° РґР°РЅРЅС‹С…: python manage.py dumpdata --format=xml > mydata.xml
+# РІС‹РіСЂСѓР·РєР° РґР°РЅРЅС‹С… РёР· РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ: python manage.py dumpdata --format=xml mount > mountdata.xml
+# РѕС‡РёСЃС‚РєР° РґР°РЅРЅС‹С…: python manage.py flush
+# Р·Р°РіСЂСѓР·РєР° РґР°РЅРЅС‹С…: python manage.py loaddata mydata.json
 
 DATABASES = {
     'default': {
@@ -149,7 +149,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
-# для функции get_path_upload_photos
+# РґР»СЏ С„СѓРЅРєС†РёРё get_path_upload_photos
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
