@@ -160,5 +160,6 @@ ______
 2. *Для создания и изменения объектов моделей со связанными данными вложенных сериализаторов использован пакет `drf-writable-nested`*
 ______
 ***ERD for Database***
-![Untitled (1)](https://github.com/Konstantin-sama/MountainPass/assets/131016961/8c61460b-6adf-4b8b-8f49-3a05aa4d701e)
+![Untitled (5)](https://github.com/Konstantin-sama/MountainPass/assets/131016961/f29d2e98-475e-44ac-961e-7c547d402fe0)
+
 
