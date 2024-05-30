@@ -170,7 +170,7 @@ ______
 
 https://www.figma.com/proto/tTeEh80nuYQIgbuCJy9dr8/ФСТР-(Copy)-(Copy)?node-id=570-2127&starting-point-node-id=570%3A2127
 ______
-*** CJM (customer journey map)***
+***CJM (customer journey map)***
 
 https://docs.google.com/spreadsheets/d/1eNFtPqYUFftQ4v-OC2K91rDGwBfUhsLh3UvEY1CXov0/edit#gid=0
 
