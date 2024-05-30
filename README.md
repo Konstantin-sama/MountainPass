@@ -166,7 +166,8 @@ ______
 ***Отчет о покрытии тестами***
 ![image](https://github.com/Konstantin-sama/MountainPass/assets/131016961/733f72a4-911d-43a8-a752-ac64b84e3e2a)
 ______
-***Figma: CJM пользователя. CJM (customer journey map).***
+***Figma: CJM пользователя (customer journey map)***
+
 https://www.figma.com/proto/tTeEh80nuYQIgbuCJy9dr8/ФСТР-(Copy)-(Copy)?node-id=570-2127&starting-point-node-id=570%3A2127
 
 
